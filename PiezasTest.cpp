@@ -68,7 +68,7 @@ TEST(PiezasTest, GSTie)
     Board.dropPiece(3);
     ASSERT_EQ(Board.gameState(), Blank);
 }
-TEST(PiezasTest, XvertWin)
+TEST(PiezasTest, XWins)
 {
     Piezas Board;
     Board.dropPiece(0); 
@@ -86,4 +86,22 @@ TEST(PiezasTest, XvertWin)
     Board.dropPiece(3); 
     Board.dropPiece(2);
     ASSERT_EQ(Board.gameState(), X);
+}
+EST(PiezasTest, OWins)
+{
+    Piezas Board;                
+    Board.dropPiece(0);  
+    Board.dropPiece(3);           
+    Board.dropPiece(0); 
+    Board.dropPiece(3); 
+	
+    Board.dropPiece(1); 
+    Board.dropPiece(3);
+    Board.dropPiece(1); 
+    Board.dropPiece(0);
+    Board.dropPiece(2); 
+    Board.dropPiece(1);
+    Board.dropPiece(2); 
+    Board.dropPiece(2);
+    ASSERT_EQ(Board.gameState(), O);
 }
