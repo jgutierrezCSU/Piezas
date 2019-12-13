@@ -47,5 +47,9 @@ TEST(PiezasTest, placePieceWhenEmpty)
   ASSERT_EQ(Board.pieceAt(2,3), Blank);
   ASSERT_EQ(Board.pieceAt(2,0), Blank);
 }
+TEST(PiezasTest, GameStateOnBlank) {
+  Piezas Board;
+  ASSERT_EQ(Board.gameState(), Invalid);
+}
 
 
