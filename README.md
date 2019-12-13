@@ -1,4 +1,5 @@
-[![Build Status](https://travis-ci.org/jgutierrezCSU/Piezas.svg?branch=master)](https://travis-ci.org/jgutierrezCSU/Piezas) [![Coverage Status](https://coveralls.io/repos/github/jgutierrezCSU/Piezas/badge.svg?branch=master)](https://coveralls.io/github/jgutierrezCSU/Piezas?branch=master)
+[![Build Status](https://travis-ci.org/jgutierrezCSU/Piezas.svg?branch=master)](https://travis-ci.org/jgutierrezCSU/Piezas) 
+[![Coverage Status](https://coveralls.io/repos/github/jgutierrezCSU/Piezas/badge.svg?branch=master)](https://coveralls.io/github/jgutierrezCSU/Piezas?branch=master)
 
 # Piezas
 
