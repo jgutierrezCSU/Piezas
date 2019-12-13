@@ -39,5 +39,13 @@ TEST(PiezasTest, doubleDrop)
   Board.dropPiece(1);
   ASSERT_EQ(Board.dropPiece(1), O);
 }
+TEST(PiezasTest, placePieceWhenEmpty)
+{
+  Piezas Board;
+  ASSERT_EQ(Board.pieceAt(0,0), Blank);
+  ASSERT_EQ(Board.pieceAt(0,3), Blank);
+  ASSERT_EQ(Board.pieceAt(2,3), Blank);
+  ASSERT_EQ(Board.pieceAt(2,0), Blank);
+}
 
 
