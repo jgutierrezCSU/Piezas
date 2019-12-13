@@ -92,7 +92,7 @@ TEST(PiezasTest, XWins)
     Board.dropPiece(2);
     ASSERT_EQ(Board.gameState(), X);
 }
-EST(PiezasTest, OWins)
+TEST(PiezasTest, OWins)
 {
     Piezas Board;                
     Board.dropPiece(0);  
