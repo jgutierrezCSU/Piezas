@@ -66,6 +66,43 @@ turn = X;
 **/ 
 Piece Piezas::dropPiece(int column)
 {
+	
+	if(column >BOARD_ROWS || column <0)
+	{
+		if(turn == X)
+		{
+		  turn = O;
+		}
+		else{
+		   turn = X;
+		}
+		return Invalid;
+	}
+	for(int i= 0; i <3; ++i)
+	{
+		if(board[i][column] == Blank)
+		{
+			Piece save = turn;
+			board[i][column] = turn;
+			if(turn == X)
+			{
+			   turn = O;
+			}
+			else
+			{
+			   turn = X;
+			}
+			return save;
+		}
+	}
+	if(turn == X)
+	{
+	   turn = O;
+	}
+	else
+	{
+	    turn = X;
+	}
     return Blank;
 }
 
