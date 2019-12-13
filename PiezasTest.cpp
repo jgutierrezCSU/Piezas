@@ -33,5 +33,11 @@ TEST(PiezasTest, dropPieceForX) {
   Piezas Board;
   ASSERT_EQ(Board.dropPiece(0), X);
 }
+TEST(PiezasTest, doubleDrop)
+{
+  Piezas Board;
+  Board.dropPiece(1);
+  ASSERT_EQ(Board.dropPiece(1), O);
+}
 
 
