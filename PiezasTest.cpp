@@ -18,3 +18,9 @@ TEST(PiezasTest, sanityCheck)
 {
 	ASSERT_TRUE(true);
 }
+
+TEST(PiezasTest,initRESET) {
+  Piezas Board;
+  Board.reset();
+  ASSERT_EQ(Board.dropPiece(0), X);
+}
