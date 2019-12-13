@@ -134,8 +134,8 @@ Piece Piezas::pieceAt(int row, int column)
 Piece Piezas::gameState()
 {
     int cur_Score = 0;
-    int XScore = 0;
-    int OScore = 0;
+    int X_m = 0;
+    int O_m = 0;
 
    
     for (int i = 0; i < BOARD_ROWS; i++)
@@ -144,6 +144,7 @@ Piece Piezas::gameState()
 	    {
                 return Invalid;
 	    }
+	
     for (int i = 0; i < BOARD_ROWS; i++)
     {
         for (int j = 0; j < BOARD_COLS-1; j++)
@@ -154,9 +155,9 @@ Piece Piezas::gameState()
 	    }
             else
             { 
-                if (XScore < cur_Score)
+                if (X_m < cur_Score)
 		{
-                    XScore = cur_Score;
+                    X_m = cur_Score;
 		}
                 cur_Score = 0;
             }
@@ -172,9 +173,27 @@ Piece Piezas::gameState()
 	    }
             else
             { 
-                if (XScore < cur_Score)
+                if (X_m < cur_Score)
 		{
-                    XScore = cur_Score;
+                    X_m = cur_Score;
+		}
+                cur_Score = 0;
+            }
+        }
+    }
+	for (int i = 0; i < BOARD_COLS; i++)
+    {
+        for (int j = 0; j < BOARD_ROWS-1; j++)
+        {
+            if (board[j][i] == board[j][i+1] && board[j][i] == O)
+	    {
+                cur_Score++;
+	    }
+            else
+            { 
+                if (X_m < cur_Score)
+		{
+                    X_m = cur_Score;
 		}
                 cur_Score = 0;
             }
@@ -191,38 +210,21 @@ Piece Piezas::gameState()
 	    }
             else
             { 
-                if (OScore < cur_Score)
+                if (O_m < cur_Score)
 		{
-                    OScore = cur_Score;
+                    O_m = cur_Score;
 		}
                 cur_Score = 0;
             }
         }
     }
-    for (int i = 0; i < BOARD_COLS; i++)
-    {
-        for (int j = 0; j < BOARD_ROWS-1; j++)
-        {
-            if (board[j][i] == board[j][i+1] && board[j][i] == O)
-	    {
-                cur_Score++;
-	    }
-            else
-            { 
-                if (XScore < cur_Score)
-		{
-                    XScore = cur_Score;
-		}
-                cur_Score = 0;
-            }
-        }
-    }
+    
  
-    if (OScore > XScore  )
+    if (O_m > X_m  )
     {
         return O;
     }
-    if ( XScore > OScore )
+    if ( X_m > O_m )
     {
         return X;
     }
