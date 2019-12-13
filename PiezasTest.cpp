@@ -120,5 +120,24 @@ TEST(PiezasTest, OutOfBoundsNeg11)
     Piezas Board;
     ASSERT_EQ(Board.pieceAt(-1,-1), Invalid);
 }
+TEST(PiezasTest, DropPieceMultiple) {
+  Piezas Board;
+  Board.dropPiece(0);
+  Board.dropPiece(0);
+  Board.dropPiece(0);
+  ASSERT_EQ(Board.dropPiece(0), Blank);
+}
+TEST(PiezasTest, OutOfBoundsNeg1)
+{
+    Piezas Board;
+    ASSERT_EQ(Board.dropPiece(-1), Invalid);
+}
+
+TEST(PiezasTest, OutOfBoundsPos4)
+{
+    Piezas Board;
+    ASSERT_EQ(Board.dropPiece(4), Invalid);
+}
+
 
 
