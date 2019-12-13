@@ -1,5 +1,7 @@
 #include "Piezas.h"
 #include <vector>
+#include <iostream> 
+using namespace std; 
 /** CLASS Piezas
  * Class for representing a Piezas vertical board, which is roughly based
  * on the game "Connect Four" where pieces are placed in a column and 
