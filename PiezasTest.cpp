@@ -68,7 +68,8 @@ TEST(PiezasTest, GSTie)
     Board.dropPiece(3);
     ASSERT_EQ(Board.gameState(), Blank);
 }
-TEST(PiezasTest, XvertWin) {
+
+TEST(PiezasTest,XverWin ) {
   Piezas Board;
   Board.dropPiece(0);
   Board.dropPiece(1);
@@ -85,6 +86,6 @@ TEST(PiezasTest, XvertWin) {
   Board.dropPiece(1);
   Board.dropPiece(2);
   Board.dropPiece(3);
-  ASSERT_EQ(Board.gameState(), Invalid);
+  ASSERT_EQ(Board.gameState(), X);
 }
 
