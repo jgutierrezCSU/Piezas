@@ -24,3 +24,9 @@ TEST(PiezasTest,initRESET) {
   Board.reset();
   ASSERT_EQ(Board.dropPiece(0), X);
 }
+TEST(PiezasTest,initRESET) {
+  Piezas Board;
+  Board.reset();
+  ASSERT_EQ(Board.dropPiece(1),Invalid );
+}
+
