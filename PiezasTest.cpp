@@ -51,5 +51,21 @@ TEST(PiezasTest, GameStateOnBlank) {
   Piezas Board;
   ASSERT_EQ(Board.gameState(), Invalid);
 }
+TEST(PiezasTest, XvertWin) {
+  Piezas Board;
 
+  Board.dropPiece(0);
+  Board.dropPiece(2);
+  Board.dropPiece(0);
+  Board.dropPiece(1);
+  Board.dropPiece(0);
+  Board.dropPiece(2);
+  Board.dropPiece(3);
+  Board.dropPiece(3);
+  Board.dropPiece(1);
+  Board.dropPiece(1);
+  Board.dropPiece(2);
+  Board.dropPiece(3);
+  ASSERT_EQ(Board.gameState(), X);
+}
 
