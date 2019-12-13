@@ -16,40 +16,45 @@ class PiezasTest : public ::testing::Test
 
 TEST(PiezasTest, sanityCheck)
 {
-	ASSERT_TRUE(true);
+    ASSERT_TRUE(true);
 }
-
+TEST(PiezasTest, StartThenReset) {
+    Piezas Board;
+    Board.dropPiece(2);
+    Board.reset();
+    ASSERT_EQ(Board.pieceAt(0, 2), Blank);
+}
 TEST(PiezasTest,initRESET) {
-  Piezas Board;
-  Board.reset();
-  ASSERT_EQ(Board.dropPiece(0), X);
+    Piezas Board;
+    Board.reset();
+    ASSERT_EQ(Board.dropPiece(0), X);
 }
 TEST(PiezasTest, dropPieceForO) {
-  Piezas Board;
-  Board.dropPiece(0);
-  ASSERT_EQ(Board.dropPiece(0), O);
+    Piezas Board;
+    Board.dropPiece(0);
+    ASSERT_EQ(Board.dropPiece(0), O);
 }
 TEST(PiezasTest, dropPieceForX) {
-  Piezas Board;
-  ASSERT_EQ(Board.dropPiece(0), X);
+    Piezas Board;
+    ASSERT_EQ(Board.dropPiece(0), X);
 }
 TEST(PiezasTest, doubleDrop)
 {
   Piezas Board;
-  Board.dropPiece(1);
-  ASSERT_EQ(Board.dropPiece(1), O);
+    Board.dropPiece(1);
+    ASSERT_EQ(Board.dropPiece(1), O);
 }
 TEST(PiezasTest, placePieceWhenEmpty)
 {
-  Piezas Board;
-  ASSERT_EQ(Board.pieceAt(0,0), Blank);
-  ASSERT_EQ(Board.pieceAt(0,3), Blank);
-  ASSERT_EQ(Board.pieceAt(2,3), Blank);
-  ASSERT_EQ(Board.pieceAt(2,0), Blank);
+    Piezas Board;
+    ASSERT_EQ(Board.pieceAt(0,0), Blank);
+    ASSERT_EQ(Board.pieceAt(0,3), Blank);
+    ASSERT_EQ(Board.pieceAt(2,3), Blank);
+    ASSERT_EQ(Board.pieceAt(2,0), Blank);
 }
 TEST(PiezasTest, GameStateOnBlank) {
-  Piezas Board;
-  ASSERT_EQ(Board.gameState(), Invalid);
+    Piezas Board;
+    ASSERT_EQ(Board.gameState(), Invalid);
 }
 TEST(PiezasTest, GSTie)
 {
@@ -105,3 +110,15 @@ EST(PiezasTest, OWins)
     Board.dropPiece(2);
     ASSERT_EQ(Board.gameState(), O);
 }
+TEST(PiezasTest, OutOfBounds44)
+{
+    Piezas Board;
+    ASSERT_EQ(Board.pieceAt(4,4), Invalid);
+}
+TEST(PiezasTest, OutOfBoundsNeg11)
+{
+    Piezas Board;
+    ASSERT_EQ(Board.pieceAt(-1,-1), Invalid);
+}
+
+
