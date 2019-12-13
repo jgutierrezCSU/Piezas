@@ -24,13 +24,14 @@ TEST(PiezasTest,initRESET) {
   Board.reset();
   ASSERT_EQ(Board.dropPiece(0), X);
 }
-TEST(PiezasTest, dropPieceForX) {
-  Piezas Board;
-  ASSERT_EQ(Board.dropPiece(0), X);
-}
-TEST(PiezasTest, dropPieceO) {
+TEST(PiezasTest, dropPieceForO) {
   Piezas Board;
   Board.dropPiece(0);
   ASSERT_EQ(Board.dropPiece(0), O);
 }
+TEST(PiezasTest, dropPieceForX) {
+  Piezas Board;
+  ASSERT_EQ(Board.dropPiece(0), X);
+}
+
 
