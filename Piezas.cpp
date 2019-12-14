@@ -116,7 +116,7 @@ Piece Piezas::pieceAt(int row, int column)
 	{
 		return Invalid;
 	}
-	else is ( column <0 || column >3)
+	else if ( column <0 || column >3)
 	{
 		retun Invalid;
 	}
