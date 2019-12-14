@@ -30,7 +30,6 @@ Piezas::Piezas()
 		board[i].resize(BOARD_COLS);
     }
 	turn = X;
-
 	for(int i=0; i< BOARD_ROWS; i++)
 	{
 		for( int j =0; j < BOARD_COLS; j++)
@@ -82,7 +81,7 @@ Piece Piezas::dropPiece(int column)
 	{
 		if(board[i][column] == Blank)
 		{
-			Piece save = turn;
+			Piece temp_s = turn;
 			board[i][column] = turn;
 			if(turn == X)
 			{
@@ -92,7 +91,7 @@ Piece Piezas::dropPiece(int column)
 			{
 			   turn = X;
 			}
-			return save;
+			return temp_s;
 		}
 	}
 	if(turn == X)
@@ -113,9 +112,13 @@ Piece Piezas::dropPiece(int column)
 Piece Piezas::pieceAt(int row, int column)
 {
 	
-	if( row <0 || row >2 || column <0 || column >3)
+	if( row <0 || row >2 )
 	{
 		return Invalid;
+	}
+	else is ( column <0 || column >3)
+	{
+		retun Invalid;
 	}
 	else
 	return board[row][column];
@@ -135,16 +138,13 @@ Piece Piezas::gameState()
 {
     int cur_Score = 0;
     int X_m = 0;
-    int O_m = 0;
-
-   
+    int O_m = 0; 
     for (int i = 0; i < BOARD_ROWS; i++)
         for (int j = 0; j < BOARD_COLS; j++)
             if (board[i][j] == Blank)
 	    {
                 return Invalid;
 	    }
-	
     for (int i = 0; i < BOARD_ROWS; i++)
     {
         for (int j = 0; j < BOARD_COLS-1; j++)
@@ -185,7 +185,7 @@ Piece Piezas::gameState()
     {
         for (int j = 0; j < BOARD_ROWS-1; j++)
         {
-            if (board[j][i] == board[j][i+1] && board[j][i] == O)
+            if ( board[j][i] == O && board[j][i] == board[j][i+1] )
 	    {
                 cur_Score++;
 	    }
